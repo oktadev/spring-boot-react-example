@@ -1,29 +1,47 @@
 import * as React from 'react';
 import GiphyImage from './GiphyImage';
+import withAuth from '@okta/okta-react';
 
-class BeerList extends React.Component<{}, any> {
-  constructor(props: any) {
+interface BeerListProps {
+  auth: any;
+}
+
+export default withAuth(class BeerList extends React.Component<BeerListProps, any> {
+  constructor(props: BeerListProps) {
     super(props);
 
     this.state = {
       beers: [],
-      isLoading: false
+      isLoading: false,
+      error: ''
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.setState({isLoading: true});
 
-    fetch('http://localhost:8080/good-beers')
-      .then(response => response.json())
-      .then(data => this.setState({beers: data, isLoading: false}));
+    try {
+      const response = await fetch('http://localhost:8080/good-beers', {
+        headers: {
+          Authorization: 'Bearer ' + await this.props.auth.getAccessToken()
+      }
+    });
+      const data = await response.json();
+      this.setState({beers: data, isLoading: false});
+    } catch (err) {
+      this.setState({error: err});
+    }
   }
 
   render() {
-    const {beers, isLoading} = this.state;
+    const {beers, isLoading, error} = this.state;
 
     if (isLoading) {
       return <p>Loading ...</p>;
+    }
+
+    if (error.length > 0) {
+      return <p>Error: {error}</p>;
     }
 
     return (
@@ -38,6 +56,4 @@ class BeerList extends React.Component<{}, any> {
       </div>
     );
   }
-}
-
-export default BeerList;
+});

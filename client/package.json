@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@okta/okta-react": "^0.0.7",
+    "@types/": "okta/okta-react",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
+    "react-router-dom": "^4.2.2",
     "react-scripts-ts": "2.8.0"
   },
   "scripts": {
@@ -17,6 +20,7 @@
     "@types/jest": "^21.1.8",
     "@types/node": "^8.0.53",
     "@types/react": "^16.0.25",
-    "@types/react-dom": "^16.0.3"
+    "@types/react-dom": "^16.0.3",
+    "@types/react-router-dom": "^4.2.3"
   }
 }
