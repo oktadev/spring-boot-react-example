@@ -1,12 +1,11 @@
 import * as React from 'react';
 import GiphyImage from './GiphyImage';
-import withAuth from '@okta/okta-react';
 
 interface BeerListProps {
   auth: any;
 }
 
-export default withAuth(class BeerList extends React.Component<BeerListProps, any> {
+class BeerList extends React.Component<BeerListProps, any> {
   constructor(props: BeerListProps) {
     super(props);
 
@@ -56,4 +55,6 @@ export default withAuth(class BeerList extends React.Component<BeerListProps, an
       </div>
     );
   }
-});
+}
+
+export default BeerList;

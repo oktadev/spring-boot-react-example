@@ -21,7 +21,7 @@ export default withAuth(class Home extends React.Component<HomeProps, any> {
     const isAuthenticated = await this.props.auth.isAuthenticated();
     const {authenticated} = this.state;
     if (isAuthenticated !== authenticated) {
-      this.setState({authenticated});
+      this.setState({authenticated: isAuthenticated});
     }
   }
 
@@ -34,13 +34,17 @@ export default withAuth(class Home extends React.Component<HomeProps, any> {
     let body = null;
     if (authenticated) {
       body = (
-        <div>
+        <div className="Buttons">
           <button onClick={this.props.auth.logout}>Logout</button>
-          <BeerList/>
+          <BeerList auth={this.props.auth}/>
         </div>
       );
     } else {
-      body = <button onClick={this.props.auth.login}>Login</button>;
+      body = (
+        <div className="Buttons">
+          <button onClick={this.props.auth.login}>Login</button>
+        </div>
+      );
     }
 
     return (
