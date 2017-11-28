@@ -2,17 +2,22 @@ import * as React from 'react';
 import './App.css';
 import BeerList from './BeerList';
 import { withAuth } from '@okta/okta-react';
+import { Auth } from './App';
 
 const logo = require('./logo.svg');
 
 interface HomeProps {
-  auth: any;
+  auth: Auth;
 }
 
-export default withAuth(class Home extends React.Component<HomeProps, any> {
+interface HomeState {
+  authenticated: boolean;
+}
+
+export default withAuth(class Home extends React.Component<HomeProps, HomeState> {
   constructor(props: HomeProps) {
     super(props);
-    this.state = {authenticated: null};
+    this.state = {authenticated: false};
     this.checkAuthentication = this.checkAuthentication.bind(this);
     this.checkAuthentication();
   }

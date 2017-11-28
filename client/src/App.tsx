@@ -10,6 +10,13 @@ const config = {
   clientId: '0oad1zx3z1h6pr2ES0h7'
 };
 
+export interface Auth {
+  login(): {};
+  logout(): {};
+  isAuthenticated(): boolean;
+  getAccessToken(): string;
+}
+
 class App extends React.Component {
 
   render() {
