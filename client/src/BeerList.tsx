@@ -23,7 +23,7 @@ class BeerList extends React.Component<{}, any> {
     const {beers, isLoading} = this.state;
 
     if (isLoading) {
-      return <p>Loading ...</p>;
+      return <p>Loading...</p>;
     }
 
     return (
@@ -34,7 +34,7 @@ class BeerList extends React.Component<{}, any> {
             {beer.name}<br/>
             <GiphyImage name={beer.name}/>
           </div>
-          )}
+        )}
       </div>
     );
   }

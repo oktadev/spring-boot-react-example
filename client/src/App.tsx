@@ -4,8 +4,7 @@ import BeerList from './BeerList';
 
 const logo = require('./logo.svg');
 
-class App extends React.Component {
-
+class App extends React.Component<{}, any> {
   render() {
     return (
       <div className="App">
