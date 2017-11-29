@@ -34,18 +34,15 @@ else
 fi
 clientUri="https://$client_app.herokuapp.com"
 
+# replace the client URL in the server
+sed -i -e "s|http://localhost:3000|$clientUri|g" $r/server/src/main/java/com/example/demo/beer/BeerController.java
+
 # Deploy the server
 cd $r/server
 mvn clean package -DskipTests
 
 heroku deploy:jar target/*jar -r server -o "--server.port=\$PORT"
 heroku config:set -r server FORCE_HTTPS="true"
-#heroku config:set -r server \
-#  FORCE_HTTPS="true" \
-#  STORMPATH_CLIENT_BASEURL="$STORMPATH_CLIENT_BASEURL" \
-#  STORMPATH_WEB_CORS_ALLOWED_ORIGINURIS="$clientUri" \
-#  OKTA_APPLICATION_ID="$OKTA_APPLICATION_ID" \
-#  OKTA_API_TOKEN="$OKTA_API_TOKEN"
 
 # Deploy the client
 cd $r/client
