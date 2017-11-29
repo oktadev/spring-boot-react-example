@@ -42,9 +42,6 @@ cd $r/server
 mvn clean package
 cf push -p target/*jar good-beer-server --no-start  --random-route
 cf set-env good-beer-server FORCE_HTTPS true
-#cf set-env good-beer-server STORMPATH_CLIENT_BASEURL $STORMPATH_CLIENT_BASEURL
-#cf set-env good-beer-server OKTA_APPLICATION_ID $OKTA_APPLICATION_ID
-#cf set-env good-beer-server OKTA_API_TOKEN $OKTA_API_TOKEN
 
 # Get the URL for the server
 serverUri=https://`app_domain good-beer-server`
