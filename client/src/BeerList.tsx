@@ -35,8 +35,8 @@ class BeerList extends React.Component<BeerListProps, BeerListState> {
       const response = await fetch('http://localhost:8080/good-beers', {
         headers: {
           Authorization: 'Bearer ' + await this.props.auth.getAccessToken()
-      }
-    });
+        }
+      });
       const data = await response.json();
       this.setState({beers: data, isLoading: false});
     } catch (err) {
@@ -63,7 +63,7 @@ class BeerList extends React.Component<BeerListProps, BeerListState> {
             {beer.name}<br/>
             <GiphyImage name={beer.name}/>
           </div>
-          )}
+        )}
       </div>
     );
   }
