@@ -45,7 +45,7 @@ class BeerList extends React.Component<BeerListProps, BeerListState> {
   }
 
   render() {
-    const {beers, isLoading} = this.state;
+    const {beers, isLoading, error} = this.state;
 
     if (isLoading) {
       return <p>Loading...</p>;
