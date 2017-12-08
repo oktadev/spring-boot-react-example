@@ -49,7 +49,7 @@ Copy the `issuer` and `clientId` into `server/src/main/resources/application.pro
 
 ## Help
 
-Please post any questions as comments on the blog post, or visit our [Okta Developer Forums](https://devforum.okta.com/). You can also email at developers@okta.com if would like to create a support ticket.
+Please post any questions as comments on the blog post, or visit our [Okta Developer Forums](https://devforum.okta.com/). You can also email developers@okta.com if would like to create a support ticket.
 
 ## License
 
