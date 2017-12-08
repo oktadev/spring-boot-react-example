@@ -10,6 +10,7 @@ Please read [Bootiful Development with Spring Boot and React](https://developer.
 
 * [Getting Started](#getting-started)
 * [Help](#help)
+* [Links](#links)
 * [License](#license)
 
 ## Getting Started
@@ -41,15 +42,43 @@ The primary example (without authentication) is in the `master` branch, while th
 git checkout okta
 ```
 
+### Create an OIDC App in Okta
+
 You will need to [create an OIDC App in Okta](https://developer.okta.com/blog/2017/12/06/bootiful-development-with-spring-boot-and-react#create-an-oidc-app-in-okta) to get your values to perform authentication. 
 
 Log in to your Okta Developer account (or [sign up](https://developer.okta.com/signup/) if you don’t have an account) and navigate to **Applications** > **Add Application**. Click **Single-Page App**, click **Next**, and give the app a name you’ll remember. Change all instances of `localhost:8080` to `localhost:3000` and click **Done**.
 
-Copy the `issuer` and `clientId` into `server/src/main/resources/application.properties` for the server. For the client, copy them into `client/src/App.tsx`. 
+### Server Configuration
+
+Copy the `issuer` and `clientId` into `server/src/main/resources/application.properties`.
+
+```properties
+okta.oauth2.issuer=https://{yourOktaDomain}.com/oauth2/default
+okta.oauth2.clientId={clientId}
+```
+
+## Client Configuration
+
+For the client, copy the `issuer` and `clientId` into `client/src/App.tsx`.
+
+```typescript
+const config = {
+  issuer: 'https://{yourOktaDomain}.com/oauth2/default',
+  redirectUri: window.location.origin + '/implicit/callback',
+  clientId: '{clientId}'
+};
+```
+
+## Links
+
+This example uses the following libraries provided by Okta:
+
+* [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot)
+* [Okta React SDK](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react)
 
 ## Help
 
-Please post any questions as comments on the blog post, or visit our [Okta Developer Forums](https://devforum.okta.com/). You can also email developers@okta.com if would like to create a support ticket.
+Please post any questions as comments on the [blog post]((https://developer.okta.com/blog/2017/12/06/bootiful-development-with-spring-boot-and-react)), or visit our [Okta Developer Forums](https://devforum.okta.com/). You can also email developers@okta.com if would like to create a support ticket.
 
 ## License
 
