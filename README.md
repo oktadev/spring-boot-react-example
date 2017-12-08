@@ -50,7 +50,7 @@ Log in to your Okta Developer account (or [sign up](https://developer.okta.com/s
 
 #### Server Configuration
 
-Copy the `issuer` and `clientId` into `server/src/main/resources/application.properties`. 
+Set the `issuer` and copy the `clientId` into `server/src/main/resources/application.properties`. 
 
 **NOTE:** The value of `{yourOktaDomain}` should be something like `dev-123456.oktapreview.com`. Make sure you don't include `-admin` in the value!
 
@@ -61,7 +61,7 @@ okta.oauth2.clientId={clientId}
 
 #### Client Configuration
 
-For the client, copy the `issuer` and `clientId` into `client/src/App.tsx`.
+For the client, set the `issuer` and copy the `clientId` into `client/src/App.tsx`.
 
 ```typescript
 const config = {
