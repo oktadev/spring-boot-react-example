@@ -48,7 +48,7 @@ You will need to [create an OIDC App in Okta](https://developer.okta.com/blog/20
 
 Log in to your Okta Developer account (or [sign up](https://developer.okta.com/signup/) if you don’t have an account) and navigate to **Applications** > **Add Application**. Click **Single-Page App**, click **Next**, and give the app a name you’ll remember. Change all instances of `localhost:8080` to `localhost:3000` and click **Done**.
 
-### Server Configuration
+#### Server Configuration
 
 Copy the `issuer` and `clientId` into `server/src/main/resources/application.properties`.
 
@@ -57,7 +57,7 @@ okta.oauth2.issuer=https://{yourOktaDomain}.com/oauth2/default
 okta.oauth2.clientId={clientId}
 ```
 
-## Client Configuration
+#### Client Configuration
 
 For the client, copy the `issuer` and `clientId` into `client/src/App.tsx`.
 
