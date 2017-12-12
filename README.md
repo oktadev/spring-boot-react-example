@@ -9,8 +9,8 @@ Please read [Bootiful Development with Spring Boot and React](https://developer.
 > [Okta](https://developer.okta.com/) has Authentication and User Management APIs that reduce development time with instant-on, scalable user infrastructure. Okta's intuitive API and expert support make it easy for developers to authenticate, manage and secure users and roles in any application.
 
 * [Getting Started](#getting-started)
-* [Help](#help)
 * [Links](#links)
+* [Help](#help)
 * [License](#license)
 
 ## Getting Started
