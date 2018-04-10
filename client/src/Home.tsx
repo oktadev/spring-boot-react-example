@@ -19,7 +19,8 @@ export default withAuth(class Home extends React.Component<HomeProps, HomeState>
     super(props);
     this.state = {authenticated: false};
     this.checkAuthentication = this.checkAuthentication.bind(this);
-    this.checkAuthentication();
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   async checkAuthentication() {
@@ -30,8 +31,20 @@ export default withAuth(class Home extends React.Component<HomeProps, HomeState>
     }
   }
 
-  componentDidUpdate() {
-    this.checkAuthentication();
+  async componentDidMount() {
+    await this.checkAuthentication();
+  }
+
+  async componentDidUpdate() {
+    await this.checkAuthentication();
+  }
+
+  async login() {
+    this.props.auth.login('/');
+  }
+
+  async logout() {
+    this.props.auth.logout();
   }
 
   render() {
@@ -40,24 +53,24 @@ export default withAuth(class Home extends React.Component<HomeProps, HomeState>
     if (authenticated) {
       body = (
         <div className="Buttons">
-          <button onClick={this.props.auth.logout}>Logout</button>
+          <button onClick={this.logout}>Logout</button>
           <BeerList auth={this.props.auth}/>
         </div>
       );
     } else {
       body = (
         <div className="Buttons">
-          <button onClick={this.props.auth.login}>Login</button>
+          <button onClick={this.login}>Login</button>
         </div>
       );
     }
 
     return (
       <div className="App">
-        <div className="App-header">
+        <header className="App-header">
           <img src={logo} className="App-logo" alt="logo"/>
-          <h2>Welcome to React</h2>
-        </div>
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
         {body}
       </div>
     );

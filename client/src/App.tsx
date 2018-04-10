@@ -2,16 +2,16 @@ import * as React from 'react';
 import './App.css';
 import Home from './Home';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Security, ImplicitCallback } from '@okta/okta-react';
+import { ImplicitCallback, Security } from '@okta/okta-react';
 
 const config = {
   issuer: 'https://dev-158606.oktapreview.com/oauth2/default',
   redirectUri: window.location.origin + '/implicit/callback',
-  clientId: '0oad1zx3z1h6pr2ES0h7'
+  clientId: '0oaen09uhjOjzhOqP0h7'
 };
 
 export interface Auth {
-  login(): {};
+  login(path: string): {};
   logout(): {};
   isAuthenticated(): boolean;
   getAccessToken(): string;

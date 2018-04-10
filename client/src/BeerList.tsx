@@ -2,22 +2,23 @@ import * as React from 'react';
 import GiphyImage from './GiphyImage';
 import { Auth } from './App';
 
+interface Beer {
+  id: string;
+  name: string;
+}
+
 interface BeerListProps {
   auth: Auth;
 }
 
 interface BeerListState {
-  beers: Array<{}>;
+  beers: Array<Beer>;
   isLoading: boolean;
   error: string;
 }
 
-interface Beer {
-  id: number;
-  name: string;
-}
-
 class BeerList extends React.Component<BeerListProps, BeerListState> {
+
   constructor(props: BeerListProps) {
     super(props);
 
@@ -48,7 +49,7 @@ class BeerList extends React.Component<BeerListProps, BeerListState> {
     const {beers, isLoading, error} = this.state;
 
     if (isLoading) {
-      return <p>Loading...</p>;
+      return <p>Loading ...</p>;
     }
 
     if (error.length > 0) {
