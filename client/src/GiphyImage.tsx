@@ -4,7 +4,12 @@ interface GiphyImageProps {
   name: string;
 }
 
-class GiphyImage extends React.Component<GiphyImageProps, any> {
+interface GiphyImageState {
+  giphyUrl: string;
+  isLoading: boolean;
+}
+
+class GiphyImage extends React.Component<GiphyImageProps, GiphyImageState> {
   constructor(props: GiphyImageProps) {
     super(props);
 
