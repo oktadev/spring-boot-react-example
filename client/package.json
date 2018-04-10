@@ -1,13 +1,13 @@
 {
   "name": "client",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "@okta/okta-react": "^0.0.9",
+    "@okta/okta-react": "^1.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts-ts": "2.8.0"
+    "react-scripts-ts": "2.14.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",
@@ -16,8 +16,8 @@
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
-    "@types/jest": "^21.1.8",
-    "@types/node": "^8.0.53",
+    "@types/jest": "^22.2.2",
+    "@types/node": "^9.6.2",
     "@types/react": "^16.0.25",
     "@types/react-dom": "^16.0.3",
     "@types/react-router-dom": "^4.2.3"
