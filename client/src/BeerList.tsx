@@ -1,8 +1,22 @@
 import * as React from 'react';
 import GiphyImage from './GiphyImage';
 
-class BeerList extends React.Component<{}, any> {
-  constructor(props: any) {
+interface Beer {
+  id: string;
+  name: string;
+}
+
+interface BeerListProps {
+}
+
+interface BeerListState {
+  beers: Array<Beer>;
+  isLoading: boolean;
+}
+
+class BeerList extends React.Component<BeerListProps, BeerListState> {
+
+  constructor(props: BeerListProps) {
     super(props);
 
     this.state = {
@@ -29,7 +43,7 @@ class BeerList extends React.Component<{}, any> {
     return (
       <div>
         <h2>Beer List</h2>
-        {beers.map((beer: any) =>
+        {beers.map((beer: Beer) =>
           <div key={beer.id}>
             {beer.name}<br/>
             <GiphyImage name={beer.name}/>
