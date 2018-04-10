@@ -1,19 +1,36 @@
 import * as React from 'react';
 import './App.css';
-import BeerList from './BeerList';
+import Home from './Home';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { ImplicitCallback, Security } from '@okta/okta-react';
 
-const logo = require('./logo.svg');
+const config = {
+  issuer: 'https://dev-158606.oktapreview.com/oauth2/default',
+  redirectUri: window.location.origin + '/implicit/callback',
+  clientId: '0oaen09uhjOjzhOqP0h7'
+};
+
+export interface Auth {
+  login(path: string): {};
+  logout(): {};
+  isAuthenticated(): boolean;
+  getAccessToken(): string;
+}
 
 class App extends React.Component {
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo"/>
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <BeerList/>
-      </div>
+      <Router>
+        <Security
+          issuer={config.issuer}
+          client_id={config.clientId}
+          redirect_uri={config.redirectUri}
+        >
+          <Route path="/" exact={true} component={Home}/>
+          <Route path="/implicit/callback" component={ImplicitCallback}/>
+        </Security>
+      </Router>
     );
   }
 }
