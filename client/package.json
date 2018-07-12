@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@okta/okta-react": "1.0.0",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
-    "react-router-dom": "4.2.2",
-    "react-scripts-ts": "2.14.0"
+    "@okta/okta-react": "^1.0.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts-ts": "2.16.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",
@@ -16,11 +16,11 @@
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
-    "@types/jest": "^22.2.2",
-    "@types/node": "^9.6.3",
-    "@types/react": "^16.3.7",
-    "@types/react-dom": "^16.0.5",
-    "@types/react-router-dom": "4.2.6",
-    "typescript": "^2.8.1"
+    "@types/jest": "^23.1.5",
+    "@types/node": "^10.5.2",
+    "@types/react": "^16.4.6",
+    "@types/react-dom": "^16.0.6",
+    "@types/react-router-dom": "^4.2.7",
+    "typescript": "^2.9.2"
   }
 }

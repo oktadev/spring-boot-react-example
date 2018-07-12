@@ -1,4 +1,4 @@
-package com.example.demo.beer;
+package com.okta.developer.demo.beer;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +15,8 @@ public class BeerController {
         this.repository = repository;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/good-beers")
-    @CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5000"})
     public Collection<Beer> goodBeers() {
         return repository.findAll().stream()
                 .filter(this::isGreat)
