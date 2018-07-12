@@ -4,7 +4,7 @@ import BeerList from './BeerList';
 import { withAuth } from '@okta/okta-react';
 import { Auth } from './App';
 
-const logo = require('./logo.svg');
+import logo from './logo.svg';
 
 interface HomeProps {
   auth: Auth;
