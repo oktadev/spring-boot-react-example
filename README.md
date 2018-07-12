@@ -18,7 +18,7 @@ Please read [Bootiful Development with Spring Boot and React](https://developer.
 To install this example application, run the following commands:
 
 ```bash
-git clone git@github.com:oktadeveloper/spring-boot-react-example.git
+git clone https://github.com/oktadeveloper/spring-boot-react-example.git
 cd spring-boot-react-example
 ```
 

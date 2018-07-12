@@ -25,8 +25,7 @@ class App extends React.Component {
         <Security
           issuer={config.issuer}
           client_id={config.clientId}
-          redirect_uri={config.redirectUri}
-        >
+          redirect_uri={config.redirectUri}>
           <Route path="/" exact={true} component={Home}/>
           <Route path="/implicit/callback" component={ImplicitCallback}/>
         </Security>
