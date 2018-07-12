@@ -1,4 +1,4 @@
-package com.example.demo.beer;
+package com.okta.developer.demo.beer;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,8 +12,7 @@ public class Beer {
     private Long id;
     private String name;
 
-    public Beer() {
-    }
+    public Beer() {}
 
     public Beer(String name) {
         this.name = name;

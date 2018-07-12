@@ -63,7 +63,7 @@ cf start react-client
 clientUri=https://`app_domain react-client`
 
 # replace the client URL in the server
-sed -i -e "s|http://localhost:3000|$clientUri|g" $r/server/src/main/java/com/example/demo/beer/BeerController.java
+sed -i -e "s|http://localhost:3000|$clientUri|g" $r/server/src/main/java/com/okta/developer/demo/beer/BeerController.java
 
 # redeploy the server
 cd $r/server
@@ -71,10 +71,10 @@ mvn package -DskipTests
 cf push -p target/*jar good-beer-server
 
 # cleanup changed files
-git checkout $r/client
-git checkout $r/server
+sed -i -e "s|$serverUri|http://localhost:8080|g" $r/client/src/BeerList.tsx
+sed -i -e "s|$clientUri|http://localhost:3000|g" $r/server/src/main/java/com/okta/developer/demo/beer/BeerController.java
 rm $r/client/src/BeerList.tsx-e
-rm $r/server/src/main/java/com/example/demo/beer/BeerController.java-e
+rm $r/server/src/main/java/com/okta/developer/demo/beer/BeerController.java-e
 
 # show apps and URLs
 cf apps

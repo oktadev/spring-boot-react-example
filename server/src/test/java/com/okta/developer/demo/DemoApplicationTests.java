@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.okta.developer.demo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
