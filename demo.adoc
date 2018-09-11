@@ -1,0 +1,76 @@
+== Bootiful React Demo Steps
+
+=== Spring Boot API
+
+. start.spring.io: h2, jpa, rest, and web [`bootiful-start`]
+
+. Add `Beer`, `BeerRepository`, `BeerCommandLineRunner` and add default beers
+
+. Start and see list of beers in console
+
+. Add `RepositoryRestResource` to `BeerRepository` 
+
+. Create `BeerController` with a `/good-beers` endpoint [`boot-good`]
+
+. Restart and confirm http://localhost:8080/good-beers works in browser and with http
+
+  http POST :8080/beers name='Guinness'
+  http PUT :8080/beers/8 name='Guinness is good for you'
+  http DELETE :8080/beers/8
+
+=== React App
+
+. Run `create-react-app client --scripts-version=react-scripts-ts`; show app with `npm start`
+
+. Modify `App.tsx` and add a `componentDidMount()` method to fetch good beers [`fetch-beers`]
+
+. Create interfaces: `Beer`, `AppProps`, and `AppState`; add constructor and initialize state [`react-constructor`]
+
+. Change `render()` to show beers [`react-loading` and `react-beer-list`]
+
+. Modify `tslint.json` to fix issues [`tslint-rules`]
+
+. Configure CORS for Spring Boot and show list of beers
+
+. Create `BeerList.tsx` and copy code from `App.tsx`; change `App.tsx` to use `<BeerList/>`
+
+. Create `GiphyImage.tsx`; add to `BeerList`; show beers with images
+
+=== PWA Support
+
+. Run `npm run build`; serve with `serve -s build -p 3000`
+
+. Run Lighthouse; fix 512px https://www.flaticon.com/free-icon/beer_168557#term=beer&page=1&position=29[icon]
+
+. Mention Cloud Foundry and Heroku + scripts
+
+=== Authentication with Okta
+
+. Add Okta Spring Boot Starter and oauth2-autoconfigure [`okta-maven-boot` and `spring-oauth2`]
+
+. Create OIDC app in Okta; add properties to `application.properties`, add `@EnableResourceServer`
+
+. Show access denied from http://localhost:8080
+
+. Add Okta's React SDK [`okta-react`]
+
+  yarn add @okta/okta-react@1.0.2 react-router-dom@4.3.1
+  yarn add -D @types/react-router-dom@4.2.7
+
+. Update `App.tsx` to use `<Security/>` component [`react-security`]
+
+. Create `src/okta.d.ts` with `declare module '@okta/okta-react';`
+
+. Create `Home.tsx` to render the app shell, login/logout buttons, and use `<BeerList/>` [`react-home`]
+
+. Add CSS to `App.css` to make buttons more visible [`react-css`]
+
+. Show app and Loading...
+
+. Fix CORS error after adding Spring Security [`cors-filter`]
+
+. Update `BeerList` to add an authorization header + error handling [`react-token`]
+
+. Fini!
+
+Source: https://developer.okta.com/blog/2017/12/06/bootiful-development-with-spring-boot-and-react
