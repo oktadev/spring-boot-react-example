@@ -1,18 +1,18 @@
 import * as React from 'react';
 import './App.css';
-import Home from './Home';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Security, ImplicitCallback } from '@okta/okta-react';
+import Home from './Home';
 
 const config = {
-  issuer: 'https://dev-158606.oktapreview.com/oauth2/default',
-  redirectUri: window.location.origin + '/implicit/callback',
-  clientId: '0oafpwp1z0r02xV8q0h7'
+  issuer: 'https://dev-669532.oktapreview.com/oauth2/default',
+  redirect_uri: window.location.origin + '/implicit/callback',
+  client_id: '0oag7xss2m38BLyIh0h7'
 };
 
 export interface Auth {
-  login(path: string): {};
-  logout(): {};
+  login(redirectUri: string): {};
+  logout(redirectUri: string): {};
   isAuthenticated(): boolean;
   getAccessToken(): string;
 }
@@ -22,10 +22,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Security
-          issuer={config.issuer}
-          client_id={config.clientId}
-          redirect_uri={config.redirectUri}>
+        <Security {...config}>
           <Route path="/" exact={true} component={Home}/>
           <Route path="/implicit/callback" component={ImplicitCallback}/>
         </Security>

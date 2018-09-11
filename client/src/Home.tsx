@@ -24,10 +24,9 @@ export default withAuth(class Home extends React.Component<HomeProps, HomeState>
   }
 
   async checkAuthentication() {
-    const isAuthenticated = await this.props.auth.isAuthenticated();
-    const {authenticated} = this.state;
-    if (isAuthenticated !== authenticated) {
-      this.setState({authenticated: isAuthenticated});
+    const authenticated = await this.props.auth.isAuthenticated();
+    if (authenticated !== this.state.authenticated) {
+      this.setState({ authenticated });
     }
   }
 
@@ -44,7 +43,7 @@ export default withAuth(class Home extends React.Component<HomeProps, HomeState>
   }
 
   async logout() {
-    this.props.auth.logout();
+    this.props.auth.logout('/');
   }
 
   render() {

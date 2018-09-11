@@ -3,7 +3,7 @@ import GiphyImage from './GiphyImage';
 import { Auth } from './App';
 
 interface Beer {
-  id: string;
+  id: number;
   name: string;
 }
 
