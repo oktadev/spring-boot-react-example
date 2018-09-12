@@ -2,7 +2,7 @@ import * as React from 'react';
 import GiphyImage from './GiphyImage';
 
 interface Beer {
-  id: string;
+  id: number;
   name: string;
 }
 
