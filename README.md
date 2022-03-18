@@ -85,3 +85,8 @@ Please post any questions as comments on the [blog post](https://developer.okta.
 ## License
 
 Apache 2.0, see [LICENSE](LICENSE).
+
+
+             npm install @okta/okta-react@1.0.2 react-router-dom@4.3.1 --save
+
+             npm install @types/react-router-dom@4.2.7 --save
