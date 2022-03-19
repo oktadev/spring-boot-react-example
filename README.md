@@ -94,4 +94,13 @@ Apache 2.0, see [LICENSE](LICENSE).
              npm install history@latest
              
              npm install @types/react-router
+             
+             
+             
+            npm install react-router@5.2.0
+            npm install react-router-dom@5.2.0
+            npm install @types/history@5.2.0
+
+            okta.d.ts
+            declare module '@okta/okta-react';
 
