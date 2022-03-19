@@ -90,3 +90,8 @@ Apache 2.0, see [LICENSE](LICENSE).
              npm install @okta/okta-react@1.0.2 react-router-dom@4.3.1 --save
 
              npm install @types/react-router-dom@4.2.7 --save
+             
+             npm install history@latest
+             
+             npm install @types/react-router
+
